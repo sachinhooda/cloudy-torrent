@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloudy-common/cloudy-common.iml" filepath="$PROJECT_DIR$/cloudy-common/cloudy-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudy-data/cloudy-data.iml" filepath="$PROJECT_DIR$/cloudy-data/cloudy-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudy-security/cloudy-security.iml" filepath="$PROJECT_DIR$/cloudy-security/cloudy-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudy-services/cloudy-services.iml" filepath="$PROJECT_DIR$/cloudy-services/cloudy-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudy-torrent.iml" filepath="$PROJECT_DIR$/cloudy-torrent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudy-web/cloudy-web.iml" filepath="$PROJECT_DIR$/cloudy-web/cloudy-web.iml" />
+    </modules>
+  </component>
+</project>

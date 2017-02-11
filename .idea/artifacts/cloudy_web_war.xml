@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cloudy-web:war">
+    <output-path>$PROJECT_DIR$/cloudy-web/target</output-path>
+    <root id="archive" name="cloudy-web.war">
+      <element id="artifact" artifact-name="cloudy-web:war exploded" />
+    </root>
+  </artifact>
+</component>
