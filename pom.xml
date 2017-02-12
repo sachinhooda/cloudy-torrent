@@ -8,6 +8,31 @@
     <artifactId>cloudy</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.compiler.version>1.8</java.compiler.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.jboss.bom>8.0.0.Final</version.jboss.bom>
+        <project.main.root>.</project.main.root>
+        <wildfly.version>10.1.0.Final</wildfly.version>
+        <springio.verison>Athens-RELEASE</springio.verison>
+        <flyway.version>4.0.3</flyway.version>
+        <jstl.version>1.2</jstl.version>
+        <taglibs.version>1.1.2</taglibs.version>
+        <glassfish.el.version>2.2.4</glassfish.el.version>
+        <cglib.version>3.2.2</cglib.version>
+        <webjars.bootstrap.version>3.3.7</webjars.bootstrap.version>
+        <webjars.jquery.version>3.0.0</webjars.jquery.version>
+        <dbunit.version>2.5.2</dbunit.version>
+        <spring.test.dbunit.version>1.3.0</spring.test.dbunit.version>
+        <okhttp.version>2.7.5</okhttp.version>
+        <minio.version>2.0.1</minio.version>
+        <jjwt.version>0.6.0</jjwt.version>
+        <hibernate.version>5.1.1.Final</hibernate.version>
+        <paytm.version>1.0</paytm.version>
+        <main.basedir>${basedir}</main.basedir>
+    </properties>
+
     <modules>
         <module>cloudy-web</module>
         <module>cloudy-data</module>
@@ -16,5 +41,59 @@
         <module>cloudy-common</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.3.4.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
+            <configuration>
+                <source>${java.compiler.version}</source>
+                <target>${java.compiler.version}</target>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+            <artifactId>maven-java-formatter-plugin</artifactId>
+            <version>0.4</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>format</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <configFile>${main.basedir}/eclipse-java-google-style.xml</configFile>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                    <version>1.2</version>
+                </dependency>
+                <dependency>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                    <version>1.10</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+</build>
 
 </project>

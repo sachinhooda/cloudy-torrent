@@ -31,11 +31,12 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cloudy torrent" target="1.5" />
-      <module name="cloudy-common" target="1.5" />
-      <module name="cloudy-data" target="1.5" />
-      <module name="cloudy-security" target="1.5" />
-      <module name="cloudy-services" target="1.5" />
-      <module name="cloudy-web" target="1.5" />
+      <module name="cloudy-common" target="1.8" />
+      <module name="cloudy-data" target="1.8" />
+      <module name="cloudy-security" target="1.8" />
+      <module name="cloudy-services" target="1.8" />
+      <module name="cloudy-torrent" target="1.8" />
+      <module name="cloudy-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
