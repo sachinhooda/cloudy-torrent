@@ -11,6 +11,15 @@
 
     <artifactId>cloudy-services</artifactId>
     <dependencies>
+        <!-- Internal Dependencies start here -->
+        <dependency>
+            <groupId>com.sachin.cloudy</groupId>
+            <artifactId>cloudy-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Internal Dependencies end here -->
+
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
         <dependency>
             <groupId>org.springframework</groupId>

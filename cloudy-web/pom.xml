@@ -11,6 +11,15 @@
     <name>cloudy-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+
+        <!-- Internal Dependencies start here -->
+        <dependency>
+            <groupId>com.sachin.cloudy</groupId>
+            <artifactId>cloudy-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Internal Dependencies end here -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -56,23 +65,23 @@
         <finalName>cloudy-web</finalName>
 
         <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <configuration>
-                <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
-                <webResources>
-                    <resource>
-                        <filtering>true</filtering>
-                        <directory>src/main/webapp</directory>
-                        <includes>
-                            <include>**/web.xml</include>
-                        </includes>
-                    </resource>
-                </webResources>
-                <warSourceDirectory>src/main/webapp</warSourceDirectory>
-            </configuration>
-        </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+                    <webResources>
+                        <resource>
+                            <filtering>true</filtering>
+                            <directory>src/main/webapp</directory>
+                            <includes>
+                                <include>**/web.xml</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
