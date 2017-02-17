@@ -10,11 +10,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloudy-services</artifactId>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <main.basedir>${basedir}/..</main.basedir>
+    </properties>
+
     <dependencies>
         <!-- Internal Dependencies start here -->
         <dependency>
             <groupId>com.sachin.cloudy</groupId>
             <artifactId>cloudy-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sachin.cloudy</groupId>
+            <artifactId>cloudy-data</artifactId>
             <version>${project.version}</version>
         </dependency>
 

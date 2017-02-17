@@ -1,0 +1,12 @@
+<Context>
+
+    <Resource name="jdbc/cloudyDS" auth="Container" type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root"
+              password="root" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/cloudy"/>
+
+
+    <Resource name="jdbc/cloudyDS_DEV" auth="Container" type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root"
+              password="root" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/cloudy_DEV"/>
+
+</Context>

@@ -10,6 +10,15 @@
           <element id="archive" name="cloudy-common-1.0-SNAPSHOT.jar">
             <element id="module-output" name="cloudy-common" />
           </element>
+          <element id="archive" name="cloudy-data-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="cloudy-data" />
+          </element>
+          <element id="archive" name="cloudy-security-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="cloudy-security" />
+          </element>
+          <element id="archive" name="cloudy-services-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="cloudy-services" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.4.RELEASE" />

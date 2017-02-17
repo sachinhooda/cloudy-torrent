@@ -3,7 +3,13 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:cloudy-common-context.xml,classpath:cloudy-data-context.xml,classpath:cloudy-security-context.xml,classpath:cloudy-services-context.xml</param-value>
+    </context-param>
+
 
     <filter>
         <filter-name>etagFilter</filter-name>
