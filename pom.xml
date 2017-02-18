@@ -15,7 +15,7 @@
         <version.jboss.bom>8.0.0.Final</version.jboss.bom>
         <project.main.root>.</project.main.root>
         <wildfly.version>10.1.0.Final</wildfly.version>
-        <springio.verison>Athens-RELEASE</springio.verison>
+        <springio.verison>Athens-SR3</springio.verison>
         <flyway.version>4.0.3</flyway.version>
         <jstl.version>1.2</jstl.version>
         <taglibs.version>1.1.2</taglibs.version>
@@ -28,7 +28,8 @@
         <okhttp.version>2.7.5</okhttp.version>
         <minio.version>2.0.1</minio.version>
         <jjwt.version>0.6.0</jjwt.version>
-        <hibernate.version>5.1.1.Final</hibernate.version>
+        <hibernate.version>5.2.7.Final</hibernate.version>
+        <hibernate.validator.version>5.4.0.Final</hibernate.validator.version>
         <paytm.version>1.0</paytm.version>
         <main.basedir>${basedir}</main.basedir>
     </properties>
@@ -41,7 +42,24 @@
         <module>cloudy-common</module>
     </modules>
 
+
+
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -55,7 +73,8 @@
         </dependency>
     </dependencies>
 
-<profiles>
+
+    <profiles>
 
     <profile>
         <id>dev</id>
