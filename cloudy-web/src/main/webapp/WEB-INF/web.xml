@@ -1,13 +1,15 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:cloudy-common-context.xml,classpath:cloudy-data-context.xml,classpath:cloudy-security-context.xml,classpath:cloudy-services-context.xml</param-value>
+        <param-value>
+            classpath:cloudy-common-context.xml,classpath:cloudy-data-context.xml,classpath:cloudy-security-context.xml,classpath:cloudy-services-context.xml
+        </param-value>
     </context-param>
 
 
@@ -16,10 +18,34 @@
         <filter-class>org.springframework.web.filter.ShallowEtagHeaderFilter</filter-class>
     </filter>
 
+    <filter>
+
+        <filter-name>OpenEntityManagerInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+        <init-param>
+            <param-name>entityManagerFactoryBeanName</param-name>
+            <param-value>entityManagerFactory</param-value>
+        </init-param>
+
+    </filter>
+
+
+
     <filter-mapping>
         <filter-name>etagFilter</filter-name>
         <url-pattern>/rest/*</url-pattern>
     </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>OpenEntityManagerInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
 
     <servlet>
@@ -45,8 +71,8 @@
         <url-pattern>/admin/*</url-pattern>
     </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>rest</servlet-name>
-    <url-pattern>/rest/*</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>rest</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
 </web-app>

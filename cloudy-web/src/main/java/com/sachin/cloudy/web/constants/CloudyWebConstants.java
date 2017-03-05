@@ -5,9 +5,9 @@ package com.sachin.cloudy.web.constants;
  */
 public interface CloudyWebConstants {
 
-  public interface URLS {
+  interface URLS {
 
-    String BASE = "/api";
-    String USER = "/user";
+    String URL_BASE = "/api";
+    String URL_USER = "/user";
   }
 }

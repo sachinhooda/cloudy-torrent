@@ -2,7 +2,7 @@
   <configuration default="false" name="cloudy" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.32 (Ubuntu)" ALTERNATIVE_JRE_ENABLED="false">
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
-      <artifact name="cloudy-web:war exploded">
+      <artifact name="cloudy-web:war">
         <settings>
           <option name="CONTEXT_PATH" value="/" />
         </settings>
@@ -68,6 +68,7 @@
     <method>
       <option name="BuildArtifacts" enabled="true">
         <artifact name="cloudy-web:war exploded" />
+        <artifact name="cloudy-web:war" />
       </option>
     </method>
   </configuration>

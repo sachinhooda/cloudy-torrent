@@ -2,7 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
     <beans profile="dev">
         <context:property-placeholder location="classpath:dev/data.properties" ignore-resource-not-found="true"
@@ -19,5 +23,62 @@
                                       ignore-unresolvable="true"/>
     </beans>
 
+    <!-- DataSource Configuration-->
+
+    <beans>
+        <jee:jndi-lookup jndi-name="java:/comp/env/jdbc/cloudyDS_DEV" id="dataSource"
+                         expected-type="javax.sql.DataSource"/>
+
+
+        <!-- Hibernate Configuration -->
+        <bean id="hibernateJpaVendorAdapter"
+              class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+
+        <bean id="entityManagerFactory"
+              class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+            <property name="dataSource" ref="dataSource"/>
+            <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
+
+            <!-- Set JPA properties -->
+            <property name="jpaProperties">
+                <props>
+                    <prop key="hibernate.show_sql">true</prop>
+                    <prop key="hibernate.format_sql">false</prop>
+
+                    <prop key="javax.persistence.schema-generation.database.action">drop-and-create</prop>
+                    <prop key="javax.persistence.schema-generation.create-source">metadata</prop>
+                    <prop key="javax.persistence.schema-generation.drop-source">metadata</prop>
+
+                    <!-- Configure to initial Scripts-->
+                    <!--<prop key="javax.persistence.sql-load-script-source"></prop> -->
+                    <prop key="hibernate.jdbc.lob.non_contextual_creation">true</prop>
+
+                    <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                    <prop key="hibernate.generate_statistics">false</prop>
+                    <prop key="hibernate.use_sql_comments">true</prop>
+                    <prop key="hbm2ddl.auto">none</prop>
+
+                </props>
+            </property>
+            <!-- Set base package of your entities -->
+            <property name="packagesToScan"
+                      value="com.sachin.cloudy.data.entities"/>
+            <!-- Set share cache mode -->
+            <property name="sharedCacheMode" value="ALL"/>
+            <!-- Set validation mode -->
+            <property name="validationMode" value="NONE"/>
+        </bean>
+
+        <jpa:repositories base-package="com.sachin.cloudy.data.repositories"
+                          entity-manager-factory-ref="entityManagerFactory"
+                          transaction-manager-ref="transactionManager"
+                          factory-class="com.sachin.cloudy.data.repositories.impl.BaseRepositoryFactoryBean"/>
+
+        <tx:annotation-driven transaction-manager="transactionManager"/>
+
+        <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+            <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        </bean>
+    </beans>
 
 </beans>

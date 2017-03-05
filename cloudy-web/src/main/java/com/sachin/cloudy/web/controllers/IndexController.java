@@ -1,8 +1,8 @@
 package com.sachin.cloudy.web.controllers;
 
 import com.sachin.cloudy.common.exception.CloudyException;
-import com.sachin.cloudy.web.constants.CloudyWebConstants;
 
+import com.sachin.cloudy.web.constants.CloudyWebConstants.URLS;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,7 @@ public class IndexController {
 
   Logger logger = Logger.getLogger("IndexController.class");
 
-  @RequestMapping(method = RequestMethod.GET, value = CloudyWebConstants.URLS.USER)
+  @RequestMapping(method = RequestMethod.GET, value = URLS.URL_USER)
   public String testOutput() throws CloudyException {
 
     logger.info("In index Controller now");
