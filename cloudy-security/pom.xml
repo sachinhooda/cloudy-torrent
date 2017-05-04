@@ -31,6 +31,12 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.sachin.cloudy</groupId>
+            <artifactId>cloudy-services</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Internal Dependencies end here -->
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
@@ -39,6 +45,40 @@
             <artifactId>spring-context</artifactId>
             <version>4.3.4.RELEASE</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>4.2.2.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>4.2.2.RELEASE</version>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>4.2.2.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.0-b05</version>
+        </dependency>
+
+
+
+
     </dependencies>
 
 </project>

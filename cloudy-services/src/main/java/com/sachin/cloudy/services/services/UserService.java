@@ -8,5 +8,5 @@ import com.sachin.cloudy.services.exception.CloudyServiceException;
  */
 public interface UserService {
 
-    User save(User user) throws CloudyServiceException;
+  User save(User user) throws CloudyServiceException;
 }

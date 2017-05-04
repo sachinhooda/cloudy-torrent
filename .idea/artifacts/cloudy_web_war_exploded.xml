@@ -10,6 +10,9 @@
           <element id="archive" name="cloudy-common-1.0-SNAPSHOT.jar">
             <element id="module-output" name="cloudy-common" />
           </element>
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.0.pr1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0.pr1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.0.pr1" />
           <element id="archive" name="cloudy-data-1.0-SNAPSHOT.jar">
             <element id="module-output" name="cloudy-data" />
           </element>
@@ -40,6 +43,11 @@
           <element id="archive" name="cloudy-security-1.0-SNAPSHOT.jar">
             <element id="module-output" name="cloudy-security" />
           </element>
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:4.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:4.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.0-b05" />
           <element id="archive" name="cloudy-services-1.0-SNAPSHOT.jar">
             <element id="module-output" name="cloudy-services" />
           </element>

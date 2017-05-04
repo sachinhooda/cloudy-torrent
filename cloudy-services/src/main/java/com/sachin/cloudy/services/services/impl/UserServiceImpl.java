@@ -15,17 +15,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+  private UserRepository userRepository;
 
-    @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+  @Autowired
+  public UserServiceImpl(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-    @Override
-    public User save(User user) throws CloudyServiceException {
+  @Override
+  public User save(User user) throws CloudyServiceException {
 
-        user = userRepository.save(user);
-        return user;
-    }
+    user = userRepository.save(user);
+    return user;
+  }
 }

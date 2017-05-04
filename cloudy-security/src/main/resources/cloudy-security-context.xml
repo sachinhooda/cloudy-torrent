@@ -1,23 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<b:beans xmlns="http://www.springframework.org/schema/security" xmlns:b="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-    <beans profile="dev">
+
+    <b:beans profile="dev">
         <context:property-placeholder location="classpath:dev/security.properties" ignore-resource-not-found="true"
                                       ignore-unresolvable="true"/>
-    </beans>
+    </b:beans>
 
-    <beans profile="prod">
+    <b:beans profile="prod">
         <context:property-placeholder location="classpath:prod/security.properties" ignore-resource-not-found="true"
                                       ignore-unresolvable="true"/>
-    </beans>
+    </b:beans>
 
-    <beans profile="test">
+    <b:beans profile="test">
         <context:property-placeholder location="classpath:test/security.properties" ignore-resource-not-found="true"
                                       ignore-unresolvable="true"/>
-    </beans>
+    </b:beans>
+
+    <b:beans>
+        <context:component-scan
+                base-package="com.sachin.cloudy.security.entrypoint,com.sachin.cloudy.security.handlers,com.sachin.cloudy.security.utils"/>
+
+        <http use-expressions="true" authentication-manager-ref="authenticationManager"
+              entry-point-ref="restAuthenticationEntryPoint" create-session="stateless">
+            <intercept-url pattern="/login/**" access="permitAll"/>
+            <intercept-url pattern="/logout/**" access="permitAll"/>
+
+            <csrf disabled="true"/>
+            <form-login login-page="/login"
+                        authentication-success-handler-ref="restAuthenticationSuccessHandler"
+                        authentication-failure-handler-ref="restAuthenticationFailureHandler"
+            />
+            <logout logout-url="/logout" success-handler-ref="restAuthenticationLogoutSuccessHandler"/>
+        </http>
+
+        <authentication-manager alias="authenticationManager">
+            <authentication-provider user-service-ref="userDetailsService">
+
+            </authentication-provider>
+
+        </authentication-manager>
+
+        <user-service id="userDetailsService">
+            <user name="sachin" password="sachinhooda" authorities="ROLE_USER, ROLE_ADMIN"/>
+        </user-service>
+    </b:beans>
 
 
-</beans>
+</b:beans>

@@ -32,6 +32,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="cloudy-common" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.0.pr1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0.pr1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.0.pr1" level="project" />
     <orderEntry type="module" module-name="cloudy-data" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:1.11.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.13.0.RELEASE" level="project" />
@@ -58,6 +61,11 @@
     <orderEntry type="library" name="Maven: javax.transaction:jta:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.querydsl:querydsl-jpa:4.1.4" level="project" />
     <orderEntry type="module" module-name="cloudy-security" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:4.2.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:4.2.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:4.2.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:4.0.0-b05" level="project" />
     <orderEntry type="module" module-name="cloudy-services" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.4.RELEASE" level="project" />
