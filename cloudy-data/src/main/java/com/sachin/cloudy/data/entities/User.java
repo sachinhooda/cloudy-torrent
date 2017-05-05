@@ -12,6 +12,7 @@ import java.util.List;
 public class User extends AuditableEntity {
 
 
+  private static final long serialVersionUID = 8297129479995182370L;
   @Column(name = "FIRST_NAME")
   private String firstName;
 
