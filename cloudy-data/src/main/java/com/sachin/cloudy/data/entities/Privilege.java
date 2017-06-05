@@ -5,14 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Created by sachinhooda on 25/5/17.
+ * Created by sachinhooda on 6/6/17.
  */
 @Entity
-@Table(name = "ROLES")
-public class Role extends AuditableEntity {
+@Table(name = "PRIVILEGES")
+public class Privilege extends AuditableEntity{
 
-    private static final long serialVersionUID = 3823659416701565658L;
 
+    private static final long serialVersionUID = -2705918250155223065L;
     @Column(name = "NAME", nullable = false)
     private String name;
 
@@ -34,7 +34,4 @@ public class Role extends AuditableEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
-
 }
