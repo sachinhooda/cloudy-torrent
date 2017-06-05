@@ -24,14 +24,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) throws CloudyServiceException {
+        try {
+            user = userRepository.save(user);
+            return user;
+        } catch (Exception e) {
+            throw new CloudyServiceException(e.getMessage(), e);
+        }
 
-        user = userRepository.save(user);
-        return user;
     }
 
     @Override
     public User getUserByEmailId(String email) throws CloudyServiceException {
-        return userRepository.findByEmail(email);
+        try {
+            User user = null;
+            user = userRepository.findByEmail(email);
+            return user;
+        } catch (Exception e) {
+            throw new CloudyServiceException(e.getMessage(), e);
+        }
+
     }
 
 

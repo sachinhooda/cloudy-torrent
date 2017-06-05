@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<b:beans xmlns="http://www.springframework.org/schema/security" xmlns:b="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<b:beans xmlns="http://www.springframework.org/schema/security" xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns:context="http://www.springframework.org/schema/context"
          xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -23,7 +24,7 @@
 
     <b:beans>
         <context:component-scan
-                base-package="com.sachin.cloudy.security.entrypoint,com.sachin.cloudy.security.handlers,com.sachin.cloudy.security.utils"/>
+                base-package="com.sachin.cloudy.security.entrypoint,com.sachin.cloudy.security.services,com.sachin.cloudy.security.handlers,com.sachin.cloudy.security.utils"/>
 
         <http use-expressions="true" authentication-manager-ref="authenticationManager"
               entry-point-ref="restAuthenticationEntryPoint" create-session="stateless">
@@ -39,15 +40,13 @@
         </http>
 
         <authentication-manager alias="authenticationManager">
-            <authentication-provider user-service-ref="userDetailsService">
+            <authentication-provider user-service-ref="cloudyUserDetailsService">
 
             </authentication-provider>
 
         </authentication-manager>
 
-        <user-service id="userDetailsService">
-            <user name="sachin" password="sachinhooda" authorities="ROLE_USER, ROLE_ADMIN"/>
-        </user-service>
+
     </b:beans>
 
 
