@@ -2,7 +2,9 @@ package com.sachin.cloudy.data.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.Collection;
 
 /**
  * Created by sachinhooda on 6/6/17.
@@ -16,8 +18,11 @@ public class Privilege extends AuditableEntity{
     @Column(name = "NAME", nullable = false)
     private String name;
 
-    @Column(name = "DESCRIPTION", nullable = true)
+    @Column(name = "DESCRIPTION")
     private String description;
+
+    @ManyToMany(mappedBy = "privileges")
+    private Collection<Role> roles;
 
     public String getName() {
         return name;
@@ -33,5 +38,13 @@ public class Privilege extends AuditableEntity{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 }
