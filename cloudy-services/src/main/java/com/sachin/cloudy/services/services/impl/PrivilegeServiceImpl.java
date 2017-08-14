@@ -54,4 +54,17 @@ public class PrivilegeServiceImpl implements PrivilegeService {
             throw new CloudyServiceException(e.getMessage(), e);
         }
     }
+
+    @Override
+    public Privilege getByName(String name) throws CloudyServiceException {
+        try {
+            Privilege privilege = privilegeRepository.findOneByName(name);
+            if (null == privilege) {
+                throw new CloudyServiceException("Resource Not found!");
+            }
+            return privilege;
+        } catch (Exception e) {
+            throw new CloudyServiceException(e.getMessage(), e);
+        }
+    }
 }

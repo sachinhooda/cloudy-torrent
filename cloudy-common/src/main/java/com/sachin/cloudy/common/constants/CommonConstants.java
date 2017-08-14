@@ -8,4 +8,5 @@ public interface CommonConstants {
   String DATE_FORMAT = "dd.MM.yyyy";
   String TIME_FORMAT = "hh:mm:ss";
   String DATE_TIME_FORMAT = "dd.MM.yyyy hh:mm:ss.SSS zzz";
+  String PLURAL_SUFFIX = "s";
 }

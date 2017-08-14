@@ -14,4 +14,6 @@ public interface PrivilegeService {
     Privilege get(Long id) throws CloudyServiceException;
 
     Privilege save(Privilege privilege) throws CloudyServiceException;
+
+    Privilege getByName(String name) throws CloudyServiceException;
 }
