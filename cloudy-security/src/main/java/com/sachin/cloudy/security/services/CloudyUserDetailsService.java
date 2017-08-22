@@ -40,7 +40,7 @@ public class CloudyUserDetailsService implements UserDetailsService {
 
         if (null == user) {
             throw new UsernameNotFoundException(username + "Not Found ");
-        }
+    }
         return CloudyUserDetailsFactory.create(user);
     }
 }

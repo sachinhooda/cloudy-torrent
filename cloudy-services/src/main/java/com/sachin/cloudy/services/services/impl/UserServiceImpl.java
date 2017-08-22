@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
             return user;
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
 
     }
 
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
             return user;
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
 
     }
 

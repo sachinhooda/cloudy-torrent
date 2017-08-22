@@ -23,7 +23,9 @@ public class CloudyUserDetails implements UserDetails {
     private final Date lastPasswordResetDate;
 
 
-    public CloudyUserDetails(Long id, String username, String firstname, String lastname, String password, String email, Collection<? extends GrantedAuthority> authorities, boolean enabled, Date lastPasswordResetDate) {
+    public CloudyUserDetails(Long id, String username, String firstname, String lastname,
+                             String password, String email, Collection<? extends GrantedAuthority> authorities,
+                             boolean enabled, Date lastPasswordResetDate) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;

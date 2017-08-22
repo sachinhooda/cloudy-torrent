@@ -77,7 +77,7 @@ public class RoleDTO {
             role = new Role();
         } else {
             role = roleParam;
-        }
+    }
         if (null != rolesDTO.getName()) {
             role.setName(rolesDTO.getName());
         }
@@ -104,7 +104,7 @@ public class RoleDTO {
         List<RoleDTO> roleDTOs = new ArrayList<>();
         for (Role role : roles) {
             roleDTOs.add(RoleDTO.toDTO(role));
-        }
+    }
         return roleDTOs;
     }
 }

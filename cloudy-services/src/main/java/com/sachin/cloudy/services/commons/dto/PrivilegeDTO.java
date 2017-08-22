@@ -64,7 +64,7 @@ public class PrivilegeDTO {
             privilege = new Privilege();
         } else {
             privilege = privilegeParam;
-        }
+    }
 
         privilege.setName(privilegeDTO.getName());
 
@@ -83,7 +83,7 @@ public class PrivilegeDTO {
         List<PrivilegeDTO> privilegeDTOs = new ArrayList<>();
         for (Privilege privilege : privileges) {
             privilegeDTOs.add(PrivilegeDTO.toDTO(privilege));
-        }
+    }
         return privilegeDTOs;
     }
 

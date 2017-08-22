@@ -31,7 +31,7 @@ public class RoleServiceImpl implements RoleService {
             return roleRepository.findAll();
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
     }
 
     @Override
@@ -44,7 +44,7 @@ public class RoleServiceImpl implements RoleService {
             return role;
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
 
     }
 
@@ -54,7 +54,7 @@ public class RoleServiceImpl implements RoleService {
             return roleRepository.save(role);
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
 
     }
 }

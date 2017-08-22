@@ -26,7 +26,7 @@
     <!-- DataSource Configuration-->
 
     <beans>
-        <jee:jndi-lookup jndi-name="java:/comp/env/jdbc/cloudyDS_DEV" id="dataSource"
+        <jee:jndi-lookup jndi-name="${DS.JNDI_LOOKUP_NAME}" id="dataSource"
                          expected-type="javax.sql.DataSource"/>
 
 

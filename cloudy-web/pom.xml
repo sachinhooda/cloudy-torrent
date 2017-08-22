@@ -13,82 +13,84 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.main.root>../</project.main.root>
         <main.basedir>${basedir}/..</main.basedir>
     </properties>
 
-        <dependencies>
+    <dependencies>
 
-            <!-- Internal Dependencies start here -->
-            <dependency>
-                <groupId>com.sachin.cloudy</groupId>
-                <artifactId>cloudy-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sachin.cloudy</groupId>
-                <artifactId>cloudy-data</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sachin.cloudy</groupId>
-                <artifactId>cloudy-security</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sachin.cloudy</groupId>
-                <artifactId>cloudy-services</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+        <!-- Internal Dependencies start here -->
+        <dependency>
+            <groupId>com.sachin.cloudy</groupId>
+            <artifactId>cloudy-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sachin.cloudy</groupId>
+            <artifactId>cloudy-data</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sachin.cloudy</groupId>
+            <artifactId>cloudy-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sachin.cloudy</groupId>
+            <artifactId>cloudy-services</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-            <!-- Internal Dependencies end here -->
+        <!-- Internal Dependencies end here -->
 
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>4.3.4.RELEASE</version>
-            </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
 
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-aop</artifactId>
-                <version>4.3.4.RELEASE</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-                <version>4.3.4.RELEASE</version>
-            </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
 
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>4.3.4.RELEASE</version>
-            </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
 
 
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
 
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>1.10</version>
-            </dependency>
-
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>3.8.1</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
-        <finalName>cloudy-web</finalName>
-
+        <finalName>cloudy-torrent</finalName>
+        <filters>
+            <filter>${project.main.root}/profiles/${build.profile.id}/config.properties</filter>
+        </filters>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -34,7 +34,8 @@ public class PrivilegeController {
     }
 
     @RequestMapping(value = URLS.URL_PRIVILEGE, method = RequestMethod.POST)
-    public PrivilegeDTO create(@Valid @RequestBody PrivilegeDTO privilegeDTO) throws CloudyRestException {
+    public PrivilegeDTO create(@Valid @RequestBody PrivilegeDTO privilegeDTO)
+            throws CloudyRestException {
         try {
             Privilege privilege = PrivilegeDTO.fromDTO(null, privilegeDTO);
             privilege = privilegeService.save(privilege);
@@ -43,11 +44,12 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_PRIVILEGE + "/{id}", method = RequestMethod.PUT)
-    public PrivilegeDTO update(@Valid @RequestBody PrivilegeDTO privilegeDTO, @PathVariable(value = "id") Long id) throws CloudyRestException {
+    public PrivilegeDTO update(@Valid @RequestBody PrivilegeDTO privilegeDTO, @PathVariable(
+            value = "id") Long id) throws CloudyRestException {
         try {
             Privilege privilege = privilegeService.get(id);
             privilege = PrivilegeDTO.fromDTO(privilege, privilegeDTO);
@@ -57,7 +59,7 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_PRIVILEGE + "/{id}", method = RequestMethod.GET)
@@ -69,7 +71,7 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_PRIVILEGES, method = RequestMethod.GET)
@@ -81,7 +83,7 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
 

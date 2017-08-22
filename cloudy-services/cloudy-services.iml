@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
+        <fileset id="fileset" name="Spring Application Context" removed="false" profiles="dev">
           <file>file://$MODULE_DIR$/src/main/resources/cloudy-services-context.xml</file>
         </fileset>
       </configuration>

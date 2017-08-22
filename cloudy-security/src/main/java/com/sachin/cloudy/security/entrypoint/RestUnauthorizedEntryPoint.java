@@ -20,6 +20,7 @@ public class RestUnauthorizedEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest httpServletRequest,
                          HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException,
             ServletException {
-        SecurityUtils.sendError(httpServletResponse, httpServletRequest, HttpServletResponse.SC_UNAUTHORIZED, e.getMessage());
+        SecurityUtils.sendError(httpServletResponse, httpServletRequest,
+                HttpServletResponse.SC_UNAUTHORIZED, e.getMessage());
     }
 }

@@ -47,6 +47,14 @@
         </authentication-manager>
 
 
+        <b:bean id="jwtAuthenticationFilter"
+                class="com.sachin.cloudy.security.filters.JWTAuthenticationTokenFilter">
+            <b:property name="authenticationManager" ref="authenticationManager"/>
+            <b:property name="authenticationSuccessHandler" ref="jwtAuthenticationSuccesshandler"></b:property>
+            <b:property name="authenticationFailureHandler" ref="restAuthenticationFailureHandler"></b:property>
+        </b:bean>
+
+
     </b:beans>
 
 

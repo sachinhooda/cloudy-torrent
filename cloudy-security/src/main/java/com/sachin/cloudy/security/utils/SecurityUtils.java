@@ -37,7 +37,7 @@ public class SecurityUtils {
             } else if (authentication.getPrincipal() instanceof String) {
                 userName = (String) authentication.getPrincipal();
             }
-        }
+    }
 
         return userName;
     }

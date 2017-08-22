@@ -46,11 +46,12 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_ROLE + "/{id}", method = RequestMethod.PUT)
-    public RoleDTO update(@Valid @RequestBody RoleDTO roleDTO, @PathVariable(value = "id") Long id) throws CloudyRestException {
+    public RoleDTO update(@Valid @RequestBody RoleDTO roleDTO, @PathVariable(value = "id") Long id)
+            throws CloudyRestException {
         try {
 
             Role role = roleService.get(id);
@@ -61,7 +62,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_ROLE + "/{id}", method = RequestMethod.GET)
@@ -73,7 +74,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_ROLES, method = RequestMethod.GET)
@@ -85,7 +86,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
 

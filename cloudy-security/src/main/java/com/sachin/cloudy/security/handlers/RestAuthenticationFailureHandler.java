@@ -17,7 +17,8 @@ import java.io.IOException;
 public class RestAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
     @Override
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+                                        AuthenticationException exception) throws IOException, ServletException {
         SecurityUtils.sendError(response, request, HttpServletResponse.SC_UNAUTHORIZED,
                 exception.getMessage());
     }

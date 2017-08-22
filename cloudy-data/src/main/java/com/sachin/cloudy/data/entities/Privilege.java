@@ -11,7 +11,7 @@ import java.util.Collection;
  */
 @Entity
 @Table(name = "PRIVILEGES")
-public class Privilege extends AuditableEntity{
+public class Privilege extends AuditableEntity {
 
 
     private static final long serialVersionUID = -2705918250155223065L;

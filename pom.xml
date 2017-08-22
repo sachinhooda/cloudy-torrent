@@ -43,7 +43,6 @@
     </modules>
 
 
-
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
@@ -76,78 +75,74 @@
 
     <profiles>
 
-    <profile>
-        <id>dev</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <properties>
-            <build.profile.id>dev</build.profile.id>
-        </properties>
-    </profile>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>dev</build.profile.id>
+            </properties>
+        </profile>
 
-    <profile>
-        <id>test</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <properties>
-            <build.profile.id>test</build.profile.id>
-        </properties>
-    </profile>
+        <profile>
+            <id>test</id>
 
-    <profile>
-        <id>prod</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <properties>
-            <build.profile.id>prod</build.profile.id>
-        </properties>
-    </profile>
+            <properties>
+                <build.profile.id>test</build.profile.id>
+            </properties>
+        </profile>
 
-</profiles>
+        <profile>
+            <id>prod</id>
+
+            <properties>
+                <build.profile.id>prod</build.profile.id>
+            </properties>
+        </profile>
+
+    </profiles>
 
 
     <build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.6.1</version>
-            <configuration>
-                <source>${java.compiler.version}</source>
-                <target>${java.compiler.version}</target>
-            </configuration>
-        </plugin>
-        <plugin>
-            <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
-            <artifactId>maven-java-formatter-plugin</artifactId>
-            <version>0.4</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>format</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <configFile>${main.basedir}/eclipse-java-google-style.xml</configFile>
-            </configuration>
-            <dependencies>
-                <dependency>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                    <version>1.2</version>
-                </dependency>
-                <dependency>
-                    <groupId>commons-codec</groupId>
-                    <artifactId>commons-codec</artifactId>
-                    <version>1.10</version>
-                </dependency>
-            </dependencies>
-        </plugin>
-    </plugins>
-</build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>${java.compiler.version}</source>
+                    <target>${java.compiler.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                <artifactId>maven-java-formatter-plugin</artifactId>
+                <version>0.4</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <configFile>${main.basedir}/eclipse-java-google-style.xml</configFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                        <version>1.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                        <version>1.10</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

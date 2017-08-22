@@ -30,7 +30,7 @@ public class PrivilegeServiceImpl implements PrivilegeService {
             return privilegeRepository.findAll();
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
     }
 
     @Override
@@ -43,7 +43,7 @@ public class PrivilegeServiceImpl implements PrivilegeService {
             return privilege;
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
     }
 
     @Override
@@ -52,7 +52,7 @@ public class PrivilegeServiceImpl implements PrivilegeService {
             return privilegeRepository.save(privilege);
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
     }
 
     @Override
@@ -65,6 +65,6 @@ public class PrivilegeServiceImpl implements PrivilegeService {
             return privilege;
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
     }
 }
