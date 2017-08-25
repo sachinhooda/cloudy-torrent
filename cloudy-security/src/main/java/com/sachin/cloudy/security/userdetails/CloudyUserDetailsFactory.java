@@ -38,7 +38,7 @@ public class CloudyUserDetailsFactory {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         for (Privilege privilege : privileges) {
             authorities.add(new SimpleGrantedAuthority(privilege.getName()));
-        }
+    }
         return authorities;
     }
 

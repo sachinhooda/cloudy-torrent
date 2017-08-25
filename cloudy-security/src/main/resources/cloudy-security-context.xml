@@ -46,6 +46,10 @@
 
         </authentication-manager>
 
+        <b:bean id="loggerInjectorbeanPostProcessor"
+                class="com.sachin.cloudy.common.logger.LoggerInjectorBeanPostProcessor">
+        </b:bean>
+
 
         <b:bean id="jwtAuthenticationFilter"
                 class="com.sachin.cloudy.security.filters.JWTAuthenticationTokenFilter">

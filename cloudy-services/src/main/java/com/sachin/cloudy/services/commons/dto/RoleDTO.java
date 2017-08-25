@@ -80,10 +80,10 @@ public class RoleDTO {
     }
         if (null != rolesDTO.getName()) {
             role.setName(rolesDTO.getName());
-        }
+    }
         if (null != rolesDTO.getDescription()) {
             role.setDescription(rolesDTO.getDescription());
-        }
+    }
         if (null != rolesDTO.getPrivileges()) {
             List<Privilege> privilegeList = new ArrayList<>();
             for (PrivilegeDTO privilegeDTO : rolesDTO.getPrivileges()) {

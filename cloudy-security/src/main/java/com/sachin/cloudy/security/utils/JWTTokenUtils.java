@@ -62,7 +62,7 @@ public class JWTTokenUtils implements Serializable {
                 | SignatureException | IllegalArgumentException e) {
             logger.error(e.getMessage(), e);
             username = null;
-        }
+    }
         return username;
     }
 
@@ -74,7 +74,7 @@ public class JWTTokenUtils implements Serializable {
                 | SignatureException | IllegalArgumentException e) {
             logger.error(e.getMessage(), e);
             claims = null;
-        }
+    }
         return claims;
     }
 
@@ -97,7 +97,7 @@ public class JWTTokenUtils implements Serializable {
                 | SignatureException | IllegalArgumentException e) {
             logger.error(e.getMessage(), e);
             created = null;
-        }
+    }
         return created;
     }
 
@@ -120,7 +120,7 @@ public class JWTTokenUtils implements Serializable {
                 | SignatureException | IllegalArgumentException e) {
             logger.error(e.getMessage(), e);
             expirationDate = null;
-        }
+    }
         return expirationDate;
     }
 
@@ -148,7 +148,7 @@ public class JWTTokenUtils implements Serializable {
             audience = AUDIENCE_TABLET;
         } else if (device.isMobile()) {
             audience = AUDIENCE_MOBILE;
-        }
+    }
         return audience;
     }
 

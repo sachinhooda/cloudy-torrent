@@ -10,6 +10,7 @@ public interface CloudyWebConstants {
     interface URLS {
 
         String URL_BASE = "/api";
+        String URL_ADMIN = "/admin";
         String URL_USER = "/user";
         String URL_ROLE = "/role";
         String URL_PRIVILEGE = "/privilege";

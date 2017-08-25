@@ -43,6 +43,10 @@
               class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">
         </bean>
 
+        <bean id="loggerInjectorbeanPostProcessor"
+              class="com.sachin.cloudy.common.logger.LoggerInjectorBeanPostProcessor">
+        </bean>
+
 
         <bean id="viewResolver"
               class="org.springframework.web.servlet.view.InternalResourceViewResolver">

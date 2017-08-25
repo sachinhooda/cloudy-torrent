@@ -70,7 +70,7 @@ public class PrivilegeDTO {
 
         if (null != privilegeDTO.getDescription()) {
             privilege.setDescription(privilegeDTO.getDescription());
-        }
+    }
 
         return privilege;
     }
