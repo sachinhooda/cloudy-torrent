@@ -41,11 +41,12 @@
 
         <authentication-manager alias="authenticationManager">
             <authentication-provider user-service-ref="cloudyUserDetailsService">
-
+                <password-encoder ref="bCryptEncoder"/>
             </authentication-provider>
 
         </authentication-manager>
 
+        <b:bean id="bCryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
         <b:bean id="loggerInjectorbeanPostProcessor"
                 class="com.sachin.cloudy.common.logger.LoggerInjectorBeanPostProcessor">
         </b:bean>

@@ -8,6 +8,7 @@ import com.sachin.cloudy.web.constants.CloudyWebConstants.URLS;
 import com.sachin.cloudy.web.exception.CloudyRestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,27 +24,32 @@ import java.time.LocalDateTime;
 @RequestMapping(value = URLS.URL_BASE)
 public class UserController {
 
-  private UserService userService;
+    private UserService userService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
-  @Autowired
-  public UserController(UserService userService) {
-    this.userService = userService;
-  }
-
-  @RequestMapping(value = URLS.URL_USER, method = RequestMethod.POST)
-  public UserDTO registerUser(@RequestBody UserDTO userDTO) throws CloudyRestException {
-
-    try {
-      User user = UserDTO.fromDTO(null, userDTO);
-      user.setCreatedDate(LocalDateTime.now());
-
-      user = userService.save(user);
-      return UserDTO.toDTO(user);
-    } catch (CloudyServiceException cse) {
-      throw new CloudyRestException(cse.getMessage(), cse);
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
+    @RequestMapping(value = URLS.URL_USER, method = RequestMethod.POST)
+    public UserDTO registerUser(@RequestBody UserDTO userDTO) throws CloudyRestException {
 
-  }
+        try {
+            User user = UserDTO.fromDTO(null, userDTO);
+
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setCreatedDate(LocalDateTime.now());
+
+            user = userService.save(user);
+            return UserDTO.toDTO(user);
+        } catch (CloudyServiceException cse) {
+            throw new CloudyRestException(cse.getMessage(), cse);
+        }
+
+
+    }
 }
