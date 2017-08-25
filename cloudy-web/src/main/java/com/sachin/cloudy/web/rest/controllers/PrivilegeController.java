@@ -1,5 +1,7 @@
 package com.sachin.cloudy.web.rest.controllers;
 
+import com.sachin.cloudy.common.constants.CommonConstants;
+import com.sachin.cloudy.common.exception.CloudyException;
 import com.sachin.cloudy.data.entities.Privilege;
 import com.sachin.cloudy.data.entities.Role;
 import com.sachin.cloudy.data.repositories.RoleRepository;
@@ -10,19 +12,17 @@ import com.sachin.cloudy.web.constants.CloudyWebConstants;
 import com.sachin.cloudy.web.exception.CloudyRestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import com.sachin.cloudy.web.constants.CloudyWebConstants.URLS;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
  * Created by sachinhooda on 11/8/17.
  */
-@Controller
+@RestController
 @RequestMapping(value = URLS.URL_BASE)
 public class PrivilegeController {
 
@@ -38,13 +38,14 @@ public class PrivilegeController {
             throws CloudyRestException {
         try {
             Privilege privilege = PrivilegeDTO.fromDTO(null, privilegeDTO);
+            privilege.setCreatedDate(LocalDateTime.now());
             privilege = privilegeService.save(privilege);
 
             return PrivilegeDTO.toDTO(privilege);
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-    }
+        }
     }
 
     @RequestMapping(value = URLS.URL_PRIVILEGE + "/{id}", method = RequestMethod.PUT)
@@ -59,19 +60,26 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-    }
+        }
     }
 
-    @RequestMapping(value = URLS.URL_PRIVILEGE + "/{id}", method = RequestMethod.GET)
-    public PrivilegeDTO get(@PathVariable(value = "id") Long id) throws CloudyRestException {
+    @RequestMapping(value = URLS.URL_PRIVILEGE + "/{property}" + "/{param}", method = RequestMethod.GET)
+    public PrivilegeDTO get(@PathVariable(value = "property") String property, @PathVariable("param") String param) throws CloudyException {
         try {
-            Privilege privilege = privilegeService.get(id);
+            Privilege privilege;
+            if (property.equalsIgnoreCase(CommonConstants.PROPERTY_ID)) {
+                privilege = privilegeService.get(Long.valueOf(param));
+            } else if (property.equalsIgnoreCase(CommonConstants.PROPERTY_NAME)) {
+                privilege = privilegeService.getByName(param);
+            } else {
+                throw new CloudyException("Wrong Search Property");
+            }
 
             return PrivilegeDTO.toDTO(privilege);
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-    }
+        }
     }
 
     @RequestMapping(value = URLS.URL_PRIVILEGES, method = RequestMethod.GET)
@@ -83,7 +91,7 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-    }
+        }
     }
 
 

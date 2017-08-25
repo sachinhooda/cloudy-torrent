@@ -1,10 +1,7 @@
 package com.sachin.cloudy.web.test.rest.api;
 
-import com.sachin.cloudy.data.entities.Privilege;
 import org.junit.Test;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 
 /**
@@ -18,26 +15,9 @@ public class InitialDataRestTemplatingTest {
     @Test
     public void test() {
 
-        createPrivileges();
-        createRoles();
+        new PrivilegesRolesGenerator();
 
     }
 
-    public void createPrivileges() {
 
-
-    }
-
-    public void createRoles() {
-
-    }
-
-    public void createPrivilegeWithParameters(String name) {
-
-
-    }
-
-    public void createRoleWithParameters(String name, List<Privilege> privileges) {
-
-    }
 }

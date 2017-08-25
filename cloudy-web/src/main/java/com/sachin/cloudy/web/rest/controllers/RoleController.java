@@ -11,18 +11,16 @@ import com.sachin.cloudy.web.exception.CloudyRestException;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
  * Created by sachinhooda on 8/7/17.
  */
-@Controller
+@RestController
 @RequestMapping(value = URLS.URL_BASE)
 public class RoleController {
 
@@ -40,13 +38,14 @@ public class RoleController {
     public RoleDTO create(@Valid @RequestBody RoleDTO roleDTO) throws CloudyRestException {
         try {
             Role role = RoleDTO.fromDTO(null, roleDTO, privilegeService);
+            role.setCreatedDate(LocalDateTime.now());
             role = roleService.save(role);
 
             return RoleDTO.toDTO(role);
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-    }
+        }
     }
 
     @RequestMapping(value = URLS.URL_ROLE + "/{id}", method = RequestMethod.PUT)
@@ -62,7 +61,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-    }
+        }
     }
 
     @RequestMapping(value = URLS.URL_ROLE + "/{id}", method = RequestMethod.GET)
@@ -74,7 +73,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-    }
+        }
     }
 
     @RequestMapping(value = URLS.URL_ROLES, method = RequestMethod.GET)
@@ -86,7 +85,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-    }
+        }
     }
 
 

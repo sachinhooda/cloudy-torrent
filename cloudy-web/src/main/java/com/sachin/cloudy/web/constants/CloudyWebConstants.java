@@ -14,6 +14,7 @@ public interface CloudyWebConstants {
         String URL_USER = "/user";
         String URL_ROLE = "/role";
         String URL_PRIVILEGE = "/privilege";
+        String URL_NAME = "/name";
         String URL_PRIVILEGES = URL_PRIVILEGE + PLURAL_SUFFIX;
         String URL_ROLES = URL_ROLE + PLURAL_SUFFIX;
 
