@@ -1,14 +1,18 @@
 package com.sachin.cloudy.services.services.impl;
 
 import com.sachin.cloudy.data.entities.OTP;
+import com.sachin.cloudy.data.entities.User;
 import com.sachin.cloudy.data.repositories.OTPRepository;
+import com.sachin.cloudy.services.constants.OTPConstants;
 import com.sachin.cloudy.services.exception.CloudyServiceException;
 import com.sachin.cloudy.services.services.OTPService;
+import com.sachin.cloudy.services.utils.OTPUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.SecureRandom;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -51,11 +55,25 @@ public class OTPServiceImpl implements OTPService {
 
     @Override
     public OTP save(OTP otp) throws CloudyServiceException {
-        return null;
+        try {
+            return otpRepository.save(otp);
+        } catch (Exception e) {
+            throw new CloudyServiceException(e.getMessage(), e);
+        }
+
     }
 
     @Override
     public void resendOTP(String token) throws CloudyServiceException {
 
+
+    }
+
+    @Override
+    public void createVerificationOTP(User user) throws CloudyServiceException {
+        String token = this.generateOTP();
+        Date expiryDate = OTPUtils.calculateExpiryDate(OTPConstants.EXPIRATION_TIME_IN_MINUTES);
+        OTP otp = new OTP(token, expiryDate, user);
+        this.save(otp);
     }
 }

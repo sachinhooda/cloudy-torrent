@@ -2,17 +2,20 @@ package com.sachin.cloudy.web.rest.controllers;
 
 import com.sachin.cloudy.data.entities.User;
 import com.sachin.cloudy.services.commons.dto.UserDTO;
+import com.sachin.cloudy.services.events.RegistrationCompletedEvent;
 import com.sachin.cloudy.services.exception.CloudyServiceException;
 import com.sachin.cloudy.services.services.UserService;
 import com.sachin.cloudy.web.constants.CloudyWebConstants.URLS;
 import com.sachin.cloudy.web.exception.CloudyRestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.WebRequest;
 import sun.security.util.Password;
 
 import java.time.LocalDateTime;
@@ -29,6 +32,8 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
 
     @Autowired
     public UserController(UserService userService) {
@@ -36,7 +41,7 @@ public class UserController {
     }
 
     @RequestMapping(value = URLS.URL_USER, method = RequestMethod.POST)
-    public UserDTO registerUser(@RequestBody UserDTO userDTO) throws CloudyRestException {
+    public UserDTO registerUser(@RequestBody UserDTO userDTO, WebRequest webRequest) throws CloudyRestException {
 
         try {
             User user = UserDTO.fromDTO(null, userDTO);
@@ -44,6 +49,7 @@ public class UserController {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setCreatedDate(LocalDateTime.now());
 
+            applicationEventPublisher.publishEvent(new RegistrationCompletedEvent(webRequest.getContextPath(), webRequest.getLocale(), user));
             user = userService.save(user);
             return UserDTO.toDTO(user);
         } catch (CloudyServiceException cse) {

@@ -1,6 +1,7 @@
 package com.sachin.cloudy.services.services;
 
 import com.sachin.cloudy.data.entities.OTP;
+import com.sachin.cloudy.data.entities.User;
 import com.sachin.cloudy.services.exception.CloudyServiceException;
 
 /**
@@ -13,4 +14,6 @@ public interface OTPService {
     OTP save(OTP otp) throws CloudyServiceException;
 
     void resendOTP(String token) throws CloudyServiceException;
+
+    void createVerificationOTP(User user) throws CloudyServiceException;
 }
