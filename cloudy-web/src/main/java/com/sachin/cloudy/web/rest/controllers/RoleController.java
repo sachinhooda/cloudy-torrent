@@ -45,7 +45,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_ROLE + "/{id}", method = RequestMethod.PUT)
@@ -61,7 +61,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_ROLE + "/{id}", method = RequestMethod.GET)
@@ -73,7 +73,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_ROLES, method = RequestMethod.GET)
@@ -85,7 +85,7 @@ public class RoleController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
 

@@ -45,7 +45,7 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_PRIVILEGE + "/{id}", method = RequestMethod.PUT)
@@ -60,11 +60,13 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
-    @RequestMapping(value = URLS.URL_PRIVILEGE + "/{property}" + "/{param}", method = RequestMethod.GET)
-    public PrivilegeDTO get(@PathVariable(value = "property") String property, @PathVariable("param") String param) throws CloudyException {
+    @RequestMapping(value = URLS.URL_PRIVILEGE + "/{property}" + "/{param}",
+            method = RequestMethod.GET)
+    public PrivilegeDTO get(@PathVariable(value = "property") String property,
+                            @PathVariable("param") String param) throws CloudyException {
         try {
             Privilege privilege;
             if (property.equalsIgnoreCase(CommonConstants.PROPERTY_ID)) {
@@ -79,7 +81,7 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
     @RequestMapping(value = URLS.URL_PRIVILEGES, method = RequestMethod.GET)
@@ -91,7 +93,7 @@ public class PrivilegeController {
 
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);
-        }
+    }
     }
 
 

@@ -37,7 +37,7 @@ public class AdminServiceImpl implements AdminService {
             return user;
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
 
     }
 
@@ -49,7 +49,7 @@ public class AdminServiceImpl implements AdminService {
             return user;
         } catch (Exception e) {
             throw new CloudyServiceException(e.getMessage(), e);
-        }
+    }
 
     }
 

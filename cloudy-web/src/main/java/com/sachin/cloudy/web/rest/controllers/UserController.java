@@ -41,16 +41,18 @@ public class UserController {
     }
 
     @RequestMapping(value = URLS.URL_USER, method = RequestMethod.POST)
-    public UserDTO registerUser(@RequestBody UserDTO userDTO, WebRequest webRequest) throws CloudyRestException {
+    public UserDTO registerUser(@RequestBody UserDTO userDTO, WebRequest webRequest)
+            throws CloudyRestException {
 
         try {
             User user = UserDTO.fromDTO(null, userDTO);
 
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setCreatedDate(LocalDateTime.now());
-
-            applicationEventPublisher.publishEvent(new RegistrationCompletedEvent(webRequest.getContextPath(), webRequest.getLocale(), user));
             user = userService.save(user);
+            applicationEventPublisher.publishEvent(new RegistrationCompletedEvent(webRequest
+                    .getContextPath(), webRequest.getLocale(), user));
+
             return UserDTO.toDTO(user);
         } catch (CloudyServiceException cse) {
             throw new CloudyRestException(cse.getMessage(), cse);

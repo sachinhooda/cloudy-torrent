@@ -91,7 +91,7 @@ public class RoleDTO {
                 privilegeList.add(privilege);
             }
             role.setPrivileges(privilegeList);
-        }
+    }
 
         return role;
     }

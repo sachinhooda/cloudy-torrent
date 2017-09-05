@@ -9,11 +9,11 @@ import java.util.Date;
  */
 public class OTPUtils {
 
-    public static Date calculateExpiryDate(int expiryTimeInMinutes) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Timestamp(calendar.getTime().getTime()));
-        calendar.add(12, expiryTimeInMinutes);
-        return new Date(calendar.getTime().getTime());
+  public static Date calculateExpiryDate(int expiryTimeInMinutes) {
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(new Timestamp(calendar.getTime().getTime()));
+    calendar.add(12, expiryTimeInMinutes);
+    return new Date(calendar.getTime().getTime());
 
-    }
+  }
 }
