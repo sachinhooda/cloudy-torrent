@@ -13,29 +13,29 @@ import java.lang.reflect.Field;
  * Created by sachinhooda on 2/4/17.
  */
 public class LoggerInjectorBeanPostProcessor implements BeanPostProcessor, Ordered {
-    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        return bean;
-    }
+  @Override
+  public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+    return bean;
+  }
 
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+  @Override
+  public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 
-        ReflectionUtils.doWithFields(bean.getClass(), new ReflectionUtils.FieldCallback() {
-            @Override
-            public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
-                ReflectionUtils.makeAccessible(field);
-                if (field.getAnnotation(InjectLogger.class) != null) {
-                    Logger logger = LoggerFactory.getLogger(bean.getClass());
-                    field.set(bean, logger);
-                }
-            }
-        });
-        return bean;
-    }
+    ReflectionUtils.doWithFields(bean.getClass(), new ReflectionUtils.FieldCallback() {
+      @Override
+      public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
+        ReflectionUtils.makeAccessible(field);
+        if (field.getAnnotation(InjectLogger.class) != null) {
+          Logger logger = LoggerFactory.getLogger(bean.getClass());
+          field.set(bean, logger);
+        }
+      }
+    });
+    return bean;
+  }
 
-    @Override
-    public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE;
-    }
+  @Override
+  public int getOrder() {
+    return Ordered.HIGHEST_PRECEDENCE;
+  }
 }

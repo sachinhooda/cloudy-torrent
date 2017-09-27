@@ -5,8 +5,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
@@ -26,11 +25,13 @@ public class AuditableEntity extends AbstractEntity {
   private LocalDateTime lastModifiedDate;
 
   @CreatedBy
-  @Column(name = "CREATED_BY")
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "CREATED_BY")
   private User createdBy;
 
   @LastModifiedBy
-  @Column(name = "LAST_MODIFIED_BY")
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "LAST_MODIFIED_BY")
   private User lastModifiedBy;
 
   public LocalDateTime getCreatedDate() {

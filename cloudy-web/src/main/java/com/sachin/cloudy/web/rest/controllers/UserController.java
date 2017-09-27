@@ -27,37 +27,37 @@ import java.time.LocalDateTime;
 @RequestMapping(value = URLS.URL_BASE)
 public class UserController {
 
-    private UserService userService;
+  private UserService userService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+  @Autowired
+  private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private ApplicationEventPublisher applicationEventPublisher;
+  @Autowired
+  private ApplicationEventPublisher applicationEventPublisher;
 
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+  @Autowired
+  public UserController(UserService userService) {
+    this.userService = userService;
+  }
+
+  @RequestMapping(value = URLS.URL_USER, method = RequestMethod.POST)
+  public UserDTO registerUser(@RequestBody UserDTO userDTO, WebRequest webRequest)
+          throws CloudyRestException {
+
+    try {
+      User user = UserDTO.fromDTO(null, userDTO);
+
+      user.setPassword(passwordEncoder.encode(user.getPassword()));
+      user.setCreatedDate(LocalDateTime.now());
+      user = userService.save(user);
+      applicationEventPublisher.publishEvent(new RegistrationCompletedEvent(webRequest
+              .getContextPath(), webRequest.getLocale(), user));
+
+      return UserDTO.toDTO(user);
+    } catch (CloudyServiceException cse) {
+      throw new CloudyRestException(cse.getMessage(), cse);
     }
 
-    @RequestMapping(value = URLS.URL_USER, method = RequestMethod.POST)
-    public UserDTO registerUser(@RequestBody UserDTO userDTO, WebRequest webRequest)
-            throws CloudyRestException {
 
-        try {
-            User user = UserDTO.fromDTO(null, userDTO);
-
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-            user.setCreatedDate(LocalDateTime.now());
-            user = userService.save(user);
-            applicationEventPublisher.publishEvent(new RegistrationCompletedEvent(webRequest
-                    .getContextPath(), webRequest.getLocale(), user));
-
-            return UserDTO.toDTO(user);
-        } catch (CloudyServiceException cse) {
-            throw new CloudyRestException(cse.getMessage(), cse);
-        }
-
-
-    }
+  }
 }
