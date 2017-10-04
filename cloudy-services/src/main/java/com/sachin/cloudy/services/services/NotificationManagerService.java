@@ -1,6 +1,7 @@
 package com.sachin.cloudy.services.services;
 
 import com.sachin.cloudy.services.constants.ServiceConstants.NotificationTemplate;
+import com.sachin.cloudy.services.exception.CloudyServiceException;
 
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import java.util.Map;
  * Created by sachinhooda on 3/10/17.
  */
 public interface NotificationManagerService {
-    void notifyOnEmail(Map<String, String> data, NotificationTemplate notificationTemplate);
+    void notifyOnEmail(Map<String, String> data, NotificationTemplate notificationTemplate) throws CloudyServiceException;
 
-    void notifyOnSMS(Map<String, String> data, NotificationTemplate notificationTemplate);
+    void notifyOnSMS(Map<String, String> data, NotificationTemplate notificationTemplate) throws CloudyServiceException;
 }
