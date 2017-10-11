@@ -34,14 +34,18 @@ public class NotificationManagerServiceImpl implements NotificationManagerServic
     private NotificationService smsNotificationService;
 
     @Autowired
-    public NotificationManagerServiceImpl(@Qualifier("emailNotificationService") NotificationService emailNotificationService, @Qualifier("SMSNotificationService") NotificationService smsNotificationService, TemplatingService templatingService) {
+    public NotificationManagerServiceImpl(
+            @Qualifier("EmailNotificationService") NotificationService emailNotificationService,
+            @Qualifier("SMSNotificationService") NotificationService smsNotificationService,
+            TemplatingService templatingService) {
         this.emailNotificationService = emailNotificationService;
         this.smsNotificationService = smsNotificationService;
         this.templatingService = templatingService;
     }
 
     @Override
-    public void notifyOnEmail(Map<String, String> data, NotificationTemplate notificationTemplate) throws CloudyServiceException {
+    public void notifyOnEmail(Map<String, String> data, NotificationTemplate notificationTemplate)
+            throws CloudyServiceException {
 
         String body = templatingService.resolveTemplate(data, EMAIL, notificationTemplate);
         logger.debug(String.format("Sending notification : %s ......", body));
@@ -51,11 +55,12 @@ public class NotificationManagerServiceImpl implements NotificationManagerServic
 
         emailNotificationService.notifyUser(notification);
 
-        //TODO
+        // TODO
     }
 
     @Override
-    public void notifyOnSMS(Map<String, String> data, NotificationTemplate notificationTemplate) throws CloudyServiceException {
+    public void notifyOnSMS(Map<String, String> data, NotificationTemplate notificationTemplate)
+            throws CloudyServiceException {
 
         String body = templatingService.resolveTemplate(data, SMS, notificationTemplate);
         logger.debug(String.format("Sending notification : %s ......", body));
@@ -64,7 +69,7 @@ public class NotificationManagerServiceImpl implements NotificationManagerServic
         notification.setNotificationType(ServiceConstants.NOTIFICATION_TYPE_SMS);
         smsNotificationService.notifyUser(notification);
 
-        //TODO
+        // TODO
     }
 
 

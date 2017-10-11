@@ -3,17 +3,13 @@ package com.sachin.cloudy.web.rest.controllers;
 import com.sachin.cloudy.common.constants.CommonConstants;
 import com.sachin.cloudy.common.exception.CloudyException;
 import com.sachin.cloudy.data.entities.Privilege;
-import com.sachin.cloudy.data.entities.Role;
-import com.sachin.cloudy.data.repositories.RoleRepository;
 import com.sachin.cloudy.services.commons.dto.PrivilegeDTO;
 import com.sachin.cloudy.services.exception.CloudyServiceException;
 import com.sachin.cloudy.services.services.PrivilegeService;
-import com.sachin.cloudy.web.constants.CloudyWebConstants;
+import com.sachin.cloudy.web.constants.CloudyWebConstants.URLS;
 import com.sachin.cloudy.web.exception.CloudyRestException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import com.sachin.cloudy.web.constants.CloudyWebConstants.URLS;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;

@@ -1,6 +1,7 @@
 package com.sachin.cloudy.services.services;
 
-import com.sachin.cloudy.services.constants.ServiceConstants.*;
+import com.sachin.cloudy.services.constants.ServiceConstants.NotificationTargetType;
+import com.sachin.cloudy.services.constants.ServiceConstants.NotificationTemplate;
 import com.sachin.cloudy.services.exception.CloudyServiceException;
 
 import java.util.Map;
@@ -10,5 +11,6 @@ import java.util.Map;
  */
 public interface TemplatingService {
 
-    String resolveTemplate(Map<String, String> data, NotificationTargetType notificationTargetType, NotificationTemplate notificationTemplate) throws CloudyServiceException;
+  String resolveTemplate(Map<String, String> data, NotificationTargetType notificationTargetType,
+                         NotificationTemplate notificationTemplate) throws CloudyServiceException;
 }

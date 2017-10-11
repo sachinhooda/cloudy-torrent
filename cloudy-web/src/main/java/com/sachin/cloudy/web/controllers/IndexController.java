@@ -1,7 +1,6 @@
 package com.sachin.cloudy.web.controllers;
 
 import com.sachin.cloudy.common.exception.CloudyException;
-
 import com.sachin.cloudy.common.logger.InjectLogger;
 import com.sachin.cloudy.web.constants.CloudyWebConstants.URLS;
 import org.slf4j.Logger;

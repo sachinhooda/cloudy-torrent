@@ -1,7 +1,6 @@
 package com.sachin.cloudy.services.audit;
 
 import com.sachin.cloudy.common.logger.InjectLogger;
-import com.sachin.cloudy.data.audit.CloudyDataAuditAware;
 import com.sachin.cloudy.data.entities.User;
 import com.sachin.cloudy.services.exception.CloudyServiceException;
 import com.sachin.cloudy.services.services.UserService;
@@ -38,6 +37,6 @@ public class CloudyDataAuditAwareImpl implements AuditorAware<User> {
             }
         } else {
             return null;
-        }
+    }
     }
 }

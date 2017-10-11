@@ -1,7 +1,6 @@
 package com.sachin.cloudy.services.commons.dto;
 
 import com.sachin.cloudy.data.entities.Privilege;
-import com.sachin.cloudy.data.entities.Role;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 

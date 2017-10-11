@@ -1,17 +1,9 @@
 package com.sachin.cloudy.security.utils;
 
 import com.sachin.cloudy.common.logger.InjectLogger;
-import com.sachin.cloudy.data.entities.User;
 import com.sachin.cloudy.security.userdetails.CloudyUserDetails;
-import com.sachin.cloudy.services.exception.CloudyServiceException;
 import com.sachin.cloudy.services.services.UserService;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.SignatureException;
-import io.jsonwebtoken.UnsupportedJwtException;
+import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

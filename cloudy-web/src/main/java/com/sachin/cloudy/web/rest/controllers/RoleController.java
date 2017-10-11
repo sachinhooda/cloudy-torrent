@@ -8,9 +8,7 @@ import com.sachin.cloudy.services.services.PrivilegeService;
 import com.sachin.cloudy.services.services.RoleService;
 import com.sachin.cloudy.web.constants.CloudyWebConstants.URLS;
 import com.sachin.cloudy.web.exception.CloudyRestException;
-import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

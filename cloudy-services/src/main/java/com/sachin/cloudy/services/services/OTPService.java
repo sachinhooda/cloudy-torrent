@@ -15,5 +15,5 @@ public interface OTPService {
 
     void resendOTP(String token) throws CloudyServiceException;
 
-    void createVerificationOTP(User user) throws CloudyServiceException;
+    String createVerificationOTP(User user) throws CloudyServiceException;
 }

@@ -1,7 +1,5 @@
 package com.sachin.cloudy.data.entities;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,7 +7,6 @@ import java.io.Serializable;
  * Created by sachinhooda on 18/2/17.
  */
 @MappedSuperclass
-
 public abstract class AbstractEntity implements Serializable {
 
   private static final long serialVersionUID = -4988373185353252311L;

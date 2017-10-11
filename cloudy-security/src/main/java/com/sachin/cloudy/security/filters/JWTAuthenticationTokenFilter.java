@@ -1,7 +1,6 @@
 package com.sachin.cloudy.security.filters;
 
 import com.sachin.cloudy.security.constants.SecurityConstants;
-import com.sachin.cloudy.security.services.CloudyUserDetailsService;
 import com.sachin.cloudy.security.utils.JWTTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

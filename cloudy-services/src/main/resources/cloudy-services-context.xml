@@ -25,6 +25,32 @@
               class="com.sachin.cloudy.common.logger.LoggerInjectorBeanPostProcessor">
         </bean>
 
+        <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+            <property name="templateLoaderPaths" value="classpath:/${FREEMARKER_TEMPLATES_PATH}"/>
+            <property name="preferFileSystemAccess" value="false"/>
+
+        </bean>
+
+
+        <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+            <property name="host" value="${EMAIL_HOST_SERVER}"/>
+            <property name="port" value="${EMAIL_HOST_SERVER_PORT}"/>
+            <property name="username" value="${EMAIL_USERNAME}"/>
+            <property name="password" value="${EMAIL_PASSWORD}"/>
+
+            <property name="javaMailProperties">
+                <props>
+                    <prop key="mail.smtp.auth">true</prop>
+                    <prop key="mail.smtp.starttls.enable">true</prop>
+                </props>
+            </property>
+        </bean>
+
+        <bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
+            <property name="from" value="cloudythetorrent@gmail.com"/>
+            <property name="subject" value="Cloudy-Torrent Running"/>
+        </bean>
+
 
     </beans>
 
