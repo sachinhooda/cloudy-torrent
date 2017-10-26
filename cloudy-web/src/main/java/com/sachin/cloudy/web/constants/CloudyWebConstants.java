@@ -12,6 +12,8 @@ public interface CloudyWebConstants {
         String URL_BASE = "/api";
         String URL_ADMIN = "/admin";
         String URL_USER = "/user";
+        String URL_TORRENT = "/torrent";
+        String URL_UPLOAD = "/upload";
         String URL_ROLE = "/role";
         String URL_PRIVILEGE = "/privilege";
         String URL_NAME = "/name";

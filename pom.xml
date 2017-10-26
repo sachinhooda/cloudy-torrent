@@ -32,6 +32,7 @@
         <hibernate.validator.version>5.4.0.Final</hibernate.validator.version>
         <paytm.version>1.0</paytm.version>
         <main.basedir>${basedir}</main.basedir>
+        <btorrent-version>1.5</btorrent-version>
     </properties>
 
     <modules>
@@ -58,6 +59,26 @@
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate.validator.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.atomashpolskiy/bt-core -->
+        <dependency>
+            <groupId>com.github.atomashpolskiy</groupId>
+            <artifactId>bt-core</artifactId>
+            <version>${btorrent-version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.atomashpolskiy/bt-http-tracker-clien -->
+        <dependency>
+            <groupId>com.github.atomashpolskiy</groupId>
+            <artifactId>bt-http-tracker-client</artifactId>
+            <version>${btorrent-version}</version>
+            <!-- https://mvnrepository.com/artifact/com.github.atomashpolskiy/dht -->
+        </dependency>
+        <dependency>
+            <groupId>com.github.atomashpolskiy</groupId>
+            <artifactId>bt-dht</artifactId>
+            <version>${btorrent-version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework</groupId>
