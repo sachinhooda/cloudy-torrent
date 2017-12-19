@@ -1,6 +1,10 @@
 package com.sachin.cloudy.web.rest.controllers;
 
+import com.sachin.cloudy.common.logger.InjectLogger;
+import com.sachin.cloudy.services.services.StorageClientService;
 import com.sachin.cloudy.web.constants.CloudyWebConstants;
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,11 +18,20 @@ import java.security.Principal;
  */
 @RestController
 @RequestMapping(value = CloudyWebConstants.URLS.URL_BASE)
-public class TorrentController {
+public class TorrentFilesController {
 
+    StorageClientService storageClientService;
+
+    @InjectLogger
+    private Logger logger;
+
+    @Autowired
+    public TorrentFilesController(StorageClientService storageClientService) {
+        this.storageClientService = storageClientService;
+    }
 
     @RequestMapping(value = CloudyWebConstants.URLS.URL_USER + CloudyWebConstants.URLS.URL_TORRENT + CloudyWebConstants.URLS.URL_UPLOAD, method = RequestMethod.POST)
-    public String uploadTorrentFile(@RequestBody MultipartFile multipartFile) {
+    public String saveTorrentFile(@RequestBody MultipartFile multipartFile) {
 
 
         return null;

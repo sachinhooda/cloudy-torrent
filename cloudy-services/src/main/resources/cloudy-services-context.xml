@@ -25,6 +25,13 @@
               class="com.sachin.cloudy.common.logger.LoggerInjectorBeanPostProcessor">
         </bean>
 
+        <bean id="minioClient" class="io.minio.MinioClient">
+            <constructor-arg index="0" value="${STORAGE_ENDPOINT}"/>
+            <constructor-arg index="1" value="${STORAGE_ACCESS_KEY}"/>
+            <constructor-arg index="2" value="${STORAGE_SECRET_KEY}"/>
+        </bean>
+
+
         <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
             <property name="templateLoaderPaths" value="classpath:/${FREEMARKER_TEMPLATES_PATH}"/>
             <property name="preferFileSystemAccess" value="false"/>
