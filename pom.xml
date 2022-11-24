@@ -28,7 +28,7 @@
         <okhttp.version>2.7.5</okhttp.version>
         <minio.version>2.0.1</minio.version>
         <jjwt.version>0.6.0</jjwt.version>
-        <hibernate.version>5.2.7.Final</hibernate.version>
+        <hibernate.version>5.3.20.Final</hibernate.version>
         <hibernate.validator.version>5.4.0.Final</hibernate.validator.version>
         <paytm.version>1.0</paytm.version>
         <main.basedir>${basedir}</main.basedir>
